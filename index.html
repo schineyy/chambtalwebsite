@@ -153,6 +153,8 @@ body {
   line-height: 1.1; margin-bottom: 18px;
 }
 .hero-title .accent { color: var(--green); }
+.typewriter-cursor { display:inline-block; width:3px; background:#fff; margin-left:3px; animation:blink .7s step-end infinite; vertical-align:baseline; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 .hero-sub { font-size: 18px; color: var(--text); line-height: 1.7; margin-bottom: 24px; }
 .hero-checks { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
 .hero-checks span { color: var(--text-muted); font-size: 14px; }
@@ -162,7 +164,7 @@ body {
 .hero-stats {
   position: relative; z-index: 2;
   display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
-  margin-top: -40px;
+  margin-top: 20px;
 }
 .stat-card {
   background: var(--card-bg); border: 1px solid var(--border);
@@ -510,7 +512,7 @@ body {
   .hero-checks { flex-direction: column; gap: 8px; }
   .hero-buttons { flex-direction: column; }
   .hero-buttons .btn { text-align: center; }
-  .hero-stats { grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: -30px; }
+  .hero-stats { grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 10px; }
   .stat-card { padding: 16px 8px; }
   .stat-num { font-size: 22px; }
   .stat-label { font-size: 10px; }
@@ -608,10 +610,7 @@ body {
 <section class="hero-home">
   <div class="hero-overlay"></div>
   <div class="container hero-home-inner">
-    <h1 class="hero-title">
-      Unabhängig.<br>
-      <span class="accent">Grün.</span> Günstiger.
-    </h1>
+    <h1 class="hero-title" id="typewriter-heading"></h1>
     <p class="hero-sub">
       Werde unabhängig von steigenden Strompreisen. Professionelle PV-Lösungen
       aus einer Hand – regional, zuverlässig, persönlich.
@@ -1009,6 +1008,38 @@ body {
 /* ============================
    CHAMBTAL ENERGIE – main.js
    ============================ */
+
+
+// ===== TYPEWRITER HEADING =====
+(function() {
+  var parts = [
+    { text: 'Unabh\u00e4ngig.', cls: '' },
+    { text: 'BR', cls: '' },
+    { text: 'Gr\u00fcn.', cls: 'accent' },
+    { text: ' Kompetent.', cls: '' }
+  ];
+  var el = document.getElementById('typewriter-heading');
+  if (!el) return;
+  var cursor = document.createElement('span');
+  cursor.className = 'typewriter-cursor';
+  cursor.innerHTML = '\u00a0';
+  el.appendChild(cursor);
+  var partIdx = 0, charIdx = 0, speed = 80;
+  function type() {
+    if (partIdx >= parts.length) { setTimeout(function() { cursor.style.display = 'none'; }, 1500); return; }
+    var part = parts[partIdx];
+    if (part.text === 'BR') { el.insertBefore(document.createElement('br'), cursor); partIdx++; setTimeout(type, 300); return; }
+    if (charIdx < part.text.length) {
+      var spanId = 'tw-part-' + partIdx;
+      var span = document.getElementById(spanId);
+      if (!span) { span = document.createElement('span'); span.id = spanId; if (part.cls) span.className = part.cls; el.insertBefore(span, cursor); }
+      span.textContent += part.text[charIdx];
+      charIdx++;
+      setTimeout(type, speed);
+    } else { partIdx++; charIdx = 0; setTimeout(type, 200); }
+  }
+  setTimeout(type, 500);
+})();
 
 // ===== MOBILE NAV =====
 document.getElementById('hamburger')?.addEventListener('click', () => {
