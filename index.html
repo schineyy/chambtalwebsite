@@ -919,19 +919,23 @@ body {
       </div>
 
       <div>
-        <div class="form-card">
+        <form class="form-card" action="https://formsubmit.co/info@chambtal-energie.de" method="POST">
           <h3>Jetzt Termin anfragen</h3>
+          <input type="hidden" name="_subject" value="Neue Anfrage über Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://schineyy.github.io/chambtalwebsite/index.html#kontakt">
+          <input type="text" name="_honey" style="display:none">
           <div class="form-row">
-            <div class="form-group"><label for="vorname">Vorname *</label><input type="text" id="vorname" placeholder="Max" required /></div>
-            <div class="form-group"><label for="nachname">Nachname *</label><input type="text" id="nachname" placeholder="Mustermann" required /></div>
+            <div class="form-group"><label for="vorname">Vorname *</label><input type="text" name="Vorname" id="vorname" placeholder="Max" required /></div>
+            <div class="form-group"><label for="nachname">Nachname *</label><input type="text" name="Nachname" id="nachname" placeholder="Mustermann" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label for="email">E-Mail *</label><input type="email" id="email" placeholder="max@beispiel.de" required /></div>
-            <div class="form-group"><label for="telefon">Telefon</label><input type="tel" id="telefon" placeholder="01234 56789" /></div>
+            <div class="form-group"><label for="email">E-Mail *</label><input type="email" name="E-Mail" id="email" placeholder="max@beispiel.de" required /></div>
+            <div class="form-group"><label for="telefon">Telefon</label><input type="tel" name="Telefon" id="telefon" placeholder="01234 56789" /></div>
           </div>
           <div class="form-group">
             <label for="thema">Thema</label>
-            <select id="thema">
+            <select name="Thema" id="thema">
               <option value="">Bitte wählen...</option>
               <option>Photovoltaikanlage</option>
               <option>Batteriespeicher</option>
@@ -943,14 +947,14 @@ body {
           </div>
           <div class="form-group">
             <label for="nachricht">Deine Nachricht *</label>
-            <textarea id="nachricht" placeholder="Kurze Beschreibung deines Vorhabens..." required></textarea>
+            <textarea name="Nachricht" id="nachricht" placeholder="Kurze Beschreibung deines Vorhabens..." required></textarea>
           </div>
           <div class="form-check">
             <input type="checkbox" id="datenschutz" required />
             <label for="datenschutz">Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *</label>
           </div>
           <button type="submit" class="btn btn--accent btn-submit">Nachricht absenden</button>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -1110,7 +1114,7 @@ const wegInhalte = {
         <h3 style="font-size:24px;font-weight:800;color:#F1F5F9;margin-bottom:12px;">Jede Anlage zählt – auch deine</h3>
         <p style="color:#94A3B8;font-size:15px;line-height:1.75;margin-bottom:14px;">Eine 8 kWp Anlage spart jährlich ca. <strong style="color:#22C55E;">3,2 Tonnen CO₂</strong> – das entspricht 18.000 km Autofahren. Über 25 Jahre sind das <strong style="color:#22C55E;">80 Tonnen CO₂</strong>.</p>
         <p style="color:#94A3B8;font-size:15px;line-height:1.75;margin-bottom:22px;">Du hilfst, die Energiewende im Bayerischen Wald voranzutreiben – regional und sichtbar.</p>
-        <a href="#kontakt" class="btn btn--green">Meinen CO₂-Fußabdruck berechnen →</a>
+        <a href="co2-rechner.html" class="btn btn--green">Meinen CO₂-Fußabdruck berechnen →</a>
       </div>
       <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:14px;padding:28px;text-align:center;">
         <div style="font-size:48px;font-weight:800;color:#22C55E;">80 t</div>
@@ -1126,7 +1130,7 @@ const wegInhalte = {
         <h3 style="font-size:24px;font-weight:800;color:#F1F5F9;margin-bottom:12px;">Schluss mit steigenden Preisen</h3>
         <p style="color:#94A3B8;font-size:15px;line-height:1.75;margin-bottom:14px;">Der Strompreis ist seit 2010 um über <strong style="color:#F5A623;">80 % gestiegen</strong>. Mit PV + Speicher erzeugst du bis zu 80 % deines Stroms selbst.</p>
         <p style="color:#94A3B8;font-size:15px;line-height:1.75;margin-bottom:22px;">Bei Stromausfall springt die Ersatzstromfunktion an. Dein Kühlschrank, Router, Licht – alles läuft weiter.</p>
-        <a href="#kontakt" class="btn btn--accent">Unabhängigkeit berechnen →</a>
+        <a href="rechner.html" class="btn btn--accent">Unabhängigkeit berechnen →</a>
       </div>
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:28px;">
         <div style="margin-bottom:16px;"><div style="font-size:13px;color:#94A3B8;margin-bottom:4px;">Ohne Solar</div><div style="background:#EF4444;height:10px;border-radius:4px;width:100%;"></div><div style="font-size:12px;color:#64748B;margin-top:4px;">100% vom Netz abhängig</div></div>
@@ -1141,7 +1145,7 @@ const wegInhalte = {
         <h3 style="font-size:24px;font-weight:800;color:#F1F5F9;margin-bottom:12px;">Die beste Investition, die du machen kannst</h3>
         <p style="color:#94A3B8;font-size:15px;line-height:1.75;margin-bottom:14px;">10 kWp kostet ca. 12.000–18.000 €. Spart dir jährlich 1.200–2.000 €. Das sind <strong style="color:#F5A623;">7–12 % Rendite</strong> – steuerfrei.</p>
         <p style="color:#94A3B8;font-size:15px;line-height:1.75;margin-bottom:22px;">Zum Vergleich: Das Tagesgeldkonto zahlt 2–3 % – und dein Geld schrumpft durch Inflation.</p>
-        <a href="#kontakt" class="btn btn--accent">Meine Rendite berechnen →</a>
+        <a href="rechner.html" class="btn btn--accent">Meine Rendite berechnen →</a>
       </div>
       <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:14px;padding:28px;text-align:center;">
         <div style="font-size:14px;color:#94A3B8;margin-bottom:4px;">Über 25 Jahre Gesamtersparnis</div>
@@ -1165,15 +1169,7 @@ window.zeigeWeg = function(weg) {
   }
 };
 
-// ===== FORM SUBMIT =====
-document.querySelector('.btn-submit')?.addEventListener('click', function(e) {
-  e.preventDefault();
-  const v = document.getElementById('vorname')?.value;
-  const em = document.getElementById('email')?.value;
-  const ds = document.getElementById('datenschutz')?.checked;
-  if (!v || !em || !ds) { alert('Bitte alle Pflichtfelder ausfüllen und Datenschutz bestätigen.'); return; }
-  alert('Vielen Dank, ' + v + '! Ich melde mich schnellstmöglich. – Michael Schinabeck');
-});
+// ===== FORM SUBMIT (handled by FormSubmit.co) =====
 
 </script>
 </body>
